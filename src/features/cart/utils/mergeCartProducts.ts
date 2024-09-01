@@ -13,7 +13,7 @@ export const mergeCartProducts = (
     return products.map(({ product, quantity }) => {
       if (product.id === nextProduct.id) {
         return {
-          ...product,
+          product,
           quantity: quantity + 1,
         };
       }
@@ -22,5 +22,5 @@ export const mergeCartProducts = (
     });
   }
 
-  return [...products, { productId: nextProduct.id, quantity: 1 }];
+  return [...products, { product: nextProduct, quantity: 1 }];
 };

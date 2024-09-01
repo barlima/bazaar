@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useTransition } from "react";
 
 import { Product } from "@/features/products/types/Product";
 
@@ -11,13 +11,19 @@ type AddToCartProps = {
 };
 
 export const AddToCart: React.FC<AddToCartProps> = ({ product }) => {
-  const handleAddToCart = async () => {
+  const [isPending, startTransition] = useTransition();
+
+  const handleAddToCart = async (nextProduct: Product) => {
     try {
-      await addToCart(product);
+      await addToCart(nextProduct);
     } catch (error) {
       console.error(error);
     }
   };
 
-  return <button onClick={handleAddToCart}>+ Add to Cart</button>;
+  return (
+    <button onClick={() => startTransition(() => handleAddToCart(product))}>
+      {isPending ? "Adding..." : "+ Add to Cart"}
+    </button>
+  );
 };
