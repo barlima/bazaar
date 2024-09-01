@@ -20,7 +20,7 @@ const CategoryPage: React.FC<CategoryPageParams> = async ({
         {products.map((product) => (
           <li key={product.id} className="flex gap-4">
             <span>{product.title}</span>
-            <AddToCart productId={product.id.toString()} />
+            <AddToCart product={product} />
           </li>
         ))}
       </ul>

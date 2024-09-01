@@ -1,9 +1,10 @@
 import React from "react";
 
-import { getCurrentCart } from "@/features/cart/actions/getCurrentCart";
+import { getCart } from "@/features/cart/actions/getCart";
 
 const CartPage = async () => {
-  const { data: cart, error } = await getCurrentCart();
+  const cart = await getCart();
+
   return <main>{JSON.stringify(cart)}</main>;
 };
 

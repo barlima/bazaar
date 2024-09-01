@@ -1,16 +1,23 @@
 "use client";
 
 import React from "react";
+
+import { Product } from "@/features/products/types/Product";
+
 import { addToCart } from "../actions/addToCart";
 
 type AddToCartProps = {
-  productId: string;
+  product: Product;
 };
 
-export const AddToCart: React.FC<AddToCartProps> = ({ productId }) => {
+export const AddToCart: React.FC<AddToCartProps> = ({ product }) => {
   const handleAddToCart = async () => {
-    const { error } = await addToCart(productId);
+    try {
+      await addToCart(product);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  return <button onClick={() => handleAddToCart()}>+ Add to Cart</button>;
+  return <button onClick={handleAddToCart}>+ Add to Cart</button>;
 };
