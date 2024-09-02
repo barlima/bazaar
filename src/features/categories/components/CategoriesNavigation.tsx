@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { clsx } from "clsx";
 
 import { getAllCategories } from "../actions/getAllCategories";
+import { Pill } from "@/components/molecules/Pill";
 
 type CategoriesNavigationProps = {
   currentCategory: string;
@@ -14,17 +14,14 @@ export const CategoriesNavigation: React.FC<
   const { data: categories } = await getAllCategories();
 
   return (
-    <nav className="flex gap-4">
+    <nav className="flex gap-4 flex-row flex-wrap">
       {categories.map((category) => (
         <Link
           key={category}
           href={`/category/${category}`}
-          className={clsx(
-            category === currentCategory && "underline",
-            "capitalize"
-          )}
+          className={"capitalize whitespace-nowrap"}
         >
-          {category}
+          <Pill active={category === currentCategory}>{category}</Pill>
         </Link>
       ))}
     </nav>

@@ -1,7 +1,9 @@
+import React from "react";
+
 import { Card } from "@/components/atoms/Card";
 import { AddToCart } from "@/features/cart/components/AddToCart";
 import { Product } from "@/features/products/types/Product";
-import React from "react";
+import { formatCurrency } from "@/utils/formatters/currency";
 
 type ProductCardProps = {
   product: Product;
@@ -11,14 +13,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <Card
       interactive={false}
-      className="prose prose-xl bg-transparent shadow-none"
+      className="prose prose-lg bg-transparent shadow-none flex flex-col h-full"
     >
       <img
         src={product.image}
         alt={product.title}
-        className="aspect-square w-full object-contain mx-auto mix-blend-multiply"
+        className="aspect-square w-full object-contain mx-auto"
       />
-      <h4>{product.title}</h4>
+      <h4 className="flex-1">{product.title}</h4>
+      <h5 className="mb-4">{formatCurrency(product.price)}</h5>
+
       <AddToCart product={product} />
     </Card>
   );

@@ -6,7 +6,10 @@
 }
 
 @layer components {
+  .before-rose-gradient {
+    @apply before:absolute before:bg-gradient-to-b before:from-orange-300 before:from-[-20%] before:to-rose-400 before:to-80% before:w-full before:h-[calc(100%+1rem)] lg:before:h-1/2 before:z-0 before:-top-4 lg:before:top-1/2;
+  }
   .rose-gradient {
-    @apply before:absolute before:bg-gradient-to-b before:from-orange-300 before:from-[-20%] before:to-rose-400 before:to-80% before:w-full before:h-full lg:before:h-1/2 before:z-0 before:top-0 lg:before:top-1/2;
+    @apply from-orange-300 from-[-20%] to-rose-400 to-80%;
   }
 }

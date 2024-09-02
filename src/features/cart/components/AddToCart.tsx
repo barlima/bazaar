@@ -3,6 +3,7 @@
 import React, { useTransition } from "react";
 
 import { Product } from "@/features/products/types/Product";
+import { Button } from "@/components/molecules/Button";
 
 import { addToCart } from "../actions/addToCart";
 
@@ -22,8 +23,8 @@ export const AddToCart: React.FC<AddToCartProps> = ({ product }) => {
   };
 
   return (
-    <button onClick={() => startTransition(() => handleAddToCart(product))}>
+    <Button onClick={() => startTransition(() => handleAddToCart(product))}>
       {isPending ? "Adding..." : "+ Add to Cart"}
-    </button>
+    </Button>
   );
 };
