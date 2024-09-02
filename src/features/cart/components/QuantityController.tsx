@@ -21,10 +21,20 @@ export const QuantityController: React.FC<QuantityControllerProps> = ({
   };
 
   return (
-    <div className="flex flex-row gap-4">
-      <button onClick={handleChange(productId, -1)}>-</button>
-      <span>{quantity}</span>
-      <button onClick={handleChange(productId, 1)}>+</button>
+    <div className="w-min flex flex-row gap-4 border border-black justify-between ">
+      <button
+        className="bg-amber-50 w-8 h-8 border border-r-black"
+        onClick={handleChange(productId, -1)}
+      >
+        -
+      </button>
+      <span className="m-auto ">{quantity}</span>
+      <button
+        className="bg-amber-50 w-8 h-8 border border-l-black"
+        onClick={handleChange(productId, 1)}
+      >
+        +
+      </button>
     </div>
   );
 };

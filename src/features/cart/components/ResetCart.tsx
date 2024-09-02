@@ -3,7 +3,12 @@
 import React from "react";
 
 import { resetCart } from "../actions/resetCart";
+import { Button } from "@/components/molecules/Button";
 
 export const ResetCart: React.FC = () => {
-  return <button onClick={() => resetCart()}>Reset Cart</button>;
+  return (
+    <Button color="danger" onClick={() => resetCart()}>
+      Remove all items
+    </Button>
+  );
 };

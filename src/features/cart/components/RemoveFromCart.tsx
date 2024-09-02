@@ -3,6 +3,7 @@
 import React, { useTransition } from "react";
 
 import { removeFromCart } from "../actions/removeFromCart";
+import { Button } from "@/components/molecules/Button";
 
 type RemoveFromCartProps = {
   productId: number;
@@ -22,8 +23,12 @@ export const RemoveFromCart: React.FC<RemoveFromCartProps> = ({
   };
 
   return (
-    <button onClick={() => startTransition(() => handleRemove(productId))}>
-      {isPending ? "Removing..." : "- Remove from Cart"}
-    </button>
+    <Button
+      color="danger"
+      className="w-min"
+      onClick={() => startTransition(() => handleRemove(productId))}
+    >
+      {isPending ? "Removing..." : "Remove"}
+    </Button>
   );
 };
