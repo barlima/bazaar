@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 type ButtonProps = React.ComponentPropsWithoutRef<"button"> & {
-  color?: "defautl" | "danger";
+  color?: "default" | "danger";
 };
 
 export const Button: React.FCS<ButtonProps> = ({

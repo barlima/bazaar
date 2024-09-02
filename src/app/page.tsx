@@ -9,7 +9,7 @@ const Home: React.FC = async () => {
   const { data: categories } = await getAllCategories();
 
   return (
-    <div className="flex-1 flex justify-center items-center relative before-rose-gradient after:bg-amber-50 after:h-full after:w-full after:absolute after:-top-4 after:left-0 after:z-[-1]">
+    <div className="p-4 flex-1 flex justify-center items-center relative before-rose-gradient after:bg-amber-50 after:h-full after:w-full after:absolute after:-top-4 after:left-0 after:z-[-1]">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {categories.map((category) => (
           <Link key={category} href={`/category/${category}`}>
