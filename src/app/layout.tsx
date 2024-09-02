@@ -1,10 +1,10 @@
 import React, { PropsWithChildren } from "react";
 import { Inter } from "next/font/google";
-import Link from "next/link";
 
 import type { Metadata } from "next";
 
 import "./globals.css";
+import { Header } from "../layout/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +17,12 @@ const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex justify-between">
-          <Link href="/">Home</Link>
-          <Link href="/cart">Cart</Link>
-        </div>
-        {children}
+        <main className="w-full min-h-screen">
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );

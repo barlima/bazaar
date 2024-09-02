@@ -4,3 +4,9 @@
 
 :root {
 }
+
+@layer components {
+  .rose-gradient {
+    @apply before:absolute before:bg-gradient-to-b before:from-orange-300 before:from-[-20%] before:to-rose-400 before:to-80% before:w-full before:h-full lg:before:h-1/2 before:z-0 before:top-0 lg:before:top-1/2;
+  }
+}

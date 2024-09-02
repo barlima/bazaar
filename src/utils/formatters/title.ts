@@ -1,2 +1,1 @@
-export const formatTitle = (title: string) =>
-  decodeURIComponent(title).toUpperCase();
+export const formatTitle = (title: string) => decodeURIComponent(title);
