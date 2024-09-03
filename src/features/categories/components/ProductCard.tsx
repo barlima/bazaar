@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import { Card } from "@/components/atoms/Card";
 import { AddToCart } from "@/features/cart/components/AddToCart";
@@ -15,9 +16,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       interactive={false}
       className="prose prose-lg bg-transparent shadow-none flex flex-col h-full"
     >
-      <img
+      <Image
         src={product.image}
         alt={product.title}
+        width={240}
+        height={240}
         className="aspect-square w-full object-contain mx-auto"
       />
       <h4 className="flex-1">{product.title}</h4>

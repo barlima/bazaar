@@ -18,7 +18,7 @@ export const mergeCartProducts = (
         };
       }
 
-      return product;
+      return { product, quantity };
     });
   }
 

@@ -10,13 +10,12 @@ export const PageTransition: React.FCS<PropsWithChildren> = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, transform: "translateY(10px)" }}
+      initial={{ opacity: 0, transform: "translateY(-10px)" }}
       animate={{
         opacity: 1,
         transform: "translateY(0)",
         transition: { duration: 1 },
       }}
-      exit={{ opacity: 0, transform: "translateY(10px)" }}
       className={twMerge("flex flex-1", className)}
     >
       {children}

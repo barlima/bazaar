@@ -25,6 +25,7 @@ export const RemoveFromCart: React.FC<RemoveFromCartProps> = ({
   return (
     <Button
       color="danger"
+      variant="outlined"
       className="w-min"
       onClick={() => startTransition(() => handleRemove(productId))}
     >
