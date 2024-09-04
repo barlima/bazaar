@@ -5,6 +5,7 @@ import { getCart } from "@/features/cart/actions/getCart";
 import { Container } from "@/components/atoms/Container";
 import { Summary } from "@/features/cart/components/Summary";
 import { CartItem } from "@/features/cart/components/CartItem";
+import { ResetCart } from "@/features/cart/components/ResetCart";
 
 const CartPage = async () => {
   const cart = await getCart();
@@ -29,7 +30,7 @@ const CartPage = async () => {
         )}
 
         <div className="flex flex-col-reverse lg:flex-row gap-4">
-          <section className=" flex-1">
+          <section className="flex-1 flex flex-col gap-8">
             <ul className="flex flex-col gap-4">
               {cart.products.map(({ product, quantity }) => (
                 <CartItem
@@ -39,6 +40,10 @@ const CartPage = async () => {
                 />
               ))}
             </ul>
+
+            {cart.products.length > 0 && (
+              <ResetCart className="w-full hidden lg:block" />
+            )}
           </section>
 
           {cart.products.length > 0 && <Summary cart={cart} />}

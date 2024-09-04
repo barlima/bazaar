@@ -27,6 +27,7 @@ export const RemoveFromCart: React.FC<RemoveFromCartProps> = ({
       color="danger"
       variant="outlined"
       className="w-min"
+      disabled={isPending}
       onClick={() => startTransition(() => handleRemove(productId))}
     >
       {isPending ? "Removing..." : "Remove"}

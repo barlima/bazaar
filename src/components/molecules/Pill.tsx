@@ -13,6 +13,7 @@ export const Pill: React.FC<PropsWithChildren<PillProps>> = ({
 }) => {
   const classes = clsx(
     "rounded-full px-4 py-1 border-rose-400 border-2",
+    "group/link-focus-visible:outline-rose-400 group/link-focus-visible:outline-2",
     !active && "hover:bg-rose-100 transition-colors duration-300",
     active &&
       "bg-gradient-to-r border-none px-[calc(1rem+2px)] py-[calc(0.25rem+2px)] rose-gradient text-white",

@@ -3,21 +3,24 @@ import Link from "next/link";
 
 import { Card } from "@/components/atoms/Card";
 import { getAllCategories } from "@/features/categories/actions/getAllCategories";
-import { MoveUp } from "@/layout/animations/MoveUp";
+import { Logo } from "@/layout/Logo";
 
 const Home: React.FC = async () => {
   const { data: categories } = await getAllCategories();
 
   return (
-    <div className="p-4 flex-1 flex justify-center items-center relative before-rose-gradient after:bg-amber-50 after:h-full after:w-full after:absolute after:-top-4 after:left-0 after:z-[-1]">
+    <div className="p-4 flex-1 flex flex-col gap-12 justify-center items-center relative before-rose-gradient after:bg-amber-50 after:h-full after:w-full after:absolute after:-top-4 after:left-0 after:z-[-1]">
+      <Logo size="lg" className="z-10 hidden lg:flex absolute top-12" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {categories.map((category) => (
-          <Link key={category} href={`/category/${category}`}>
-            <MoveUp>
-              <Card className="h-52 w-52 flex justify-center items-center prose-xl prose-stone">
-                <h5 className="text-center capitalize">{category}</h5>
-              </Card>
-            </MoveUp>
+          <Link
+            key={category}
+            href={`/category/${category}`}
+            className="rounded-lg focus-within:outline-none group"
+          >
+            <Card className="h-52 w-52 flex justify-center items-center prose-xl prose-stone group-focus-within:bg-rose-100 group-focus-within:border-red-400">
+              <h5 className="text-center capitalize">{category}</h5>
+            </Card>
           </Link>
         ))}
       </div>

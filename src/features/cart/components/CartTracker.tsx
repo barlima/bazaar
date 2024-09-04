@@ -11,7 +11,7 @@ export const CartTracker: React.FC = async () => {
   const count = getProductsCount(cart.products);
 
   return (
-    <Link href="/cart" className="relative group">
+    <Link href="/cart" className="relative group rounded-md">
       <FaCartShopping
         size={24}
         className="fill-stone-700 group-hover:fill-stone-900 transition-colors duration-300"

@@ -19,7 +19,7 @@ export const CategoriesNavigation: React.FC<
         <Link
           key={category}
           href={`/category/${category}`}
-          className={"capitalize whitespace-nowrap"}
+          className={"capitalize whitespace-nowrap rounded-full"}
         >
           <Pill active={category === currentCategory}>{category}</Pill>
         </Link>

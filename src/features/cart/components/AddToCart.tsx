@@ -23,7 +23,10 @@ export const AddToCart: React.FC<AddToCartProps> = ({ product }) => {
   };
 
   return (
-    <Button onClick={() => startTransition(() => handleAddToCart(product))}>
+    <Button
+      onClick={() => startTransition(() => handleAddToCart(product))}
+      disabled={isPending}
+    >
       {isPending ? "Adding..." : "+ Add to Cart"}
     </Button>
   );

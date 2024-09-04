@@ -12,4 +12,8 @@
   .rose-gradient {
     @apply from-orange-300 from-[-20%] to-rose-400 to-80%;
   }
+
+  a {
+    @apply outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400;
+  }
 }
