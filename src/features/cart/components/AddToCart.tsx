@@ -6,6 +6,7 @@ import { Product } from "@/features/products/types/Product";
 import { Button } from "@/components/molecules/Button";
 
 import { addToCart } from "../actions/addToCart";
+import { useErrorContext } from "@/context/ErrorContext";
 
 type AddToCartProps = {
   product: Product;
@@ -13,12 +14,15 @@ type AddToCartProps = {
 
 export const AddToCart: React.FC<AddToCartProps> = ({ product }) => {
   const [isPending, startTransition] = useTransition();
+  const { setError } = useErrorContext();
 
   const handleAddToCart = async (nextProduct: Product) => {
     try {
+      throw new Error("Not implemented");
       await addToCart(nextProduct);
     } catch (error) {
       console.error(error);
+      setError("Something went wrong");
     }
   };
 
