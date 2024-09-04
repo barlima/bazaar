@@ -2,11 +2,11 @@ import React from "react";
 
 import { Card } from "@/components/atoms/Card";
 import { formatCurrency } from "@/utils/formatters/currency";
-import { Button } from "@/components/molecules/Button";
 
 import { Cart } from "../types/Cart";
 import { getTotalPrice } from "../utils/getTotalPrice";
 import { getProductsCount } from "../utils/getProductsCount";
+import { Checkout } from "./Checkout";
 
 type SummaryProps = {
   cart: Cart;
@@ -32,12 +32,7 @@ export const Summary: React.FC<SummaryProps> = ({ cart }) => {
             Total: {formatCurrency(getTotalPrice(cart.products))}
           </span>
         </div>
-        <Button className="w-full justify-between lg:justify-center">
-          <span>Checkout</span>
-          <span className="inline lg:hidden">
-            Total: {formatCurrency(getTotalPrice(cart.products))}
-          </span>
-        </Button>
+        <Checkout products={cart.products} />
       </Card>
     </aside>
   );
