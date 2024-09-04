@@ -18,7 +18,6 @@ export const AddToCart: React.FC<AddToCartProps> = ({ product }) => {
 
   const handleAddToCart = async (nextProduct: Product) => {
     try {
-      throw new Error("Not implemented");
       await addToCart(nextProduct);
     } catch (error) {
       console.error(error);
