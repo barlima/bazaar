@@ -1,4 +1,10 @@
 {
   "extends": ["next/core-web-vitals" , "eslint:recommended"],
-  "ignorePatterns": ["**/*.mjs", "**/*.d.ts"]
+  "ignorePatterns": ["**/*.mjs", "**/*.d.ts"],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "no-unused-vars": "warn"
+  }
 }
