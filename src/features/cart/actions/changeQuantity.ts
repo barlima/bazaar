@@ -7,7 +7,7 @@ import { Cart } from "../types/Cart";
 import { getCart } from "./getCart";
 import { getCartCookieId } from "./getCartCookieId";
 
-export const changeQuantity = async (productId: number, change: 1 | -1) => {
+export const changeQuantity = async (productId: number, quantity: number) => {
   const cart = await getCart();
   const cartCookieId = await getCartCookieId();
 
@@ -17,11 +17,11 @@ export const changeQuantity = async (productId: number, change: 1 | -1) => {
 
   const updatedProducts = cart.products.reduce((acc, details) => {
     if (details.product.id === productId) {
-      if (change === -1 && details.quantity === 1) {
+      if (!quantity) {
         return acc;
       }
 
-      details.quantity += change;
+      details.quantity = quantity;
     }
 
     return [...acc, details];
