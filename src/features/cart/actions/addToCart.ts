@@ -11,11 +11,9 @@ import { getCartCookieId } from "./getCartCookieId";
 import { getCart } from "./getCart";
 
 export const addToCart = async (product: Product) => {
-  const cartCookieId = getCartCookieId();
+  const cartCookieId = await getCartCookieId();
 
   const cart = await getCart();
-
-  console.log(cart);
 
   if (!cart.id) {
     await kv.set(`cart-${cartCookieId}`, {

@@ -9,7 +9,7 @@ import { getCartCookieId } from "./getCartCookieId";
 
 export const changeQuantity = async (productId: number, change: 1 | -1) => {
   const cart = await getCart();
-  const cartCookieId = getCartCookieId();
+  const cartCookieId = await getCartCookieId();
 
   if (!cart.id) {
     return;

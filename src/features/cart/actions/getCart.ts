@@ -6,7 +6,7 @@ import { Cart } from "../types/Cart";
 import { getCartCookieId } from "./getCartCookieId";
 
 export const getCart = async (): Promise<Cart> => {
-  const cartCookieId = getCartCookieId();
+  const cartCookieId = await getCartCookieId();
 
   if (!cartCookieId) {
     return { id: 0, date: formatDate(new Date()), products: [] };

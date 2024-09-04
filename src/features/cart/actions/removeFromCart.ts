@@ -8,7 +8,7 @@ import { getCartCookieId } from "./getCartCookieId";
 
 export const removeFromCart = async (productId: number) => {
   const cart = await getCart();
-  const cartCookieId = getCartCookieId();
+  const cartCookieId = await getCartCookieId();
 
   if (!cart.id) {
     throw new Error("Cart not found");
